@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320">
+    <title>Gematria Highlighter Preferences</title>
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 320px;
+        height: auto;
+        background: #0a0a0a;
+        color: #e0e0e0;
+        font-family: 'IM Fell English SC', serif;
+      }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 320px;
+        height: 100%;
+        background: linear-gradient(-45deg, #111, #222, #333, #111);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+        z-index: -1;
+      }
+      @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .container {
+        position: relative;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .title {
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+      }
+      .option {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        margin-bottom: 20px;
+      }
+      .option label {
+        font-size: 18px;
+        margin-right: 10px;
+      }
+      .toggle-switch {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      input[type="checkbox"] {
+        width: 40px;
+        height: 20px;
+        -webkit-appearance: none;
+        background: #444;
+        border-radius: 10px;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        transition: background 0.2s ease-in-out;
+      }
+      input[type="checkbox"]:checked {
+        background: #006400;
+      }
+      input[type="checkbox"]::before {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #fff;
+        top: 1px;
+        left: 1px;
+        transition: transform 0.2s ease-in-out;
+      }
+      input[type="checkbox"]:checked::before {
+        transform: translateX(20px);
+      }
+      .input-field {
+        width: 60px;
+        padding: 5px;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="container">
+      <div class="title">GEMATRIA<br>HIGHLIGHTER</div>
+      <div class="option">
+        <div class="toggle-switch">
+          <label for="toggle">Enable</label>
+          <input type="checkbox" id="toggle">
+        </div>
+      </div>
+      <div class="option">
+        <div class="toggle-switch">
+          <label for="dismissInterval">Dismiss Interval (sec)</label>
+          <input type="number" id="dismissInterval" class="input-field" min="0" value="10">
+        </div>
+      </div>
+    </div>
+    <script src="pref.js"></script>
+  </body>
+</html>
